@@ -484,8 +484,6 @@ font-size:20px;
 
 <body>
 
-<!-- HEADER -->
-
 <div class="header">
 
 <div class="header-left">
@@ -506,18 +504,12 @@ font-size:20px;
 
 </div>
 
-<!-- CONTAINER -->
-
 <div class="container">
-
-<!-- LOGO -->
 
 <div class="logo">
 <h1>Artatix</h1>
 <div class="lang">🇮🇩 ID</div>
 </div>
-
-<!-- STEPPER -->
 
 <div class="stepper">
 
@@ -539,23 +531,17 @@ font-size:20px;
 
 </div>
 
-<!-- BANNER -->
-
 <div class="banner">
 <img src="banner.png" alt="Banner Festival">
 </div>
-
-<!-- TITLE -->
 
 <div class="section-title">
 🎟️ Kategori Tiket
 </div>
 
-<!-- TICKET LIST -->
-
 <div class="ticket-list">
 
-<!-- PRESALE FESTIVAL -->
+<!-- FESTIVAL -->
 
 <div class="ticket-card">
 
@@ -591,7 +577,7 @@ Pilih Tiket
 </div>
 </div>
 
-<!-- EARLY BIRD FESTIVAL -->
+<!-- SOLD -->
 
 <div class="ticket-card">
 
@@ -613,7 +599,7 @@ Sold Out
 </div>
 </div>
 
-<!-- EARLY BIRD VIP -->
+<!-- SOLD -->
 
 <div class="ticket-card">
 
@@ -635,7 +621,7 @@ Sold Out
 </div>
 </div>
 
-<!-- PRESALE VIP -->
+<!-- VIP -->
 
 <div class="ticket-card">
 
@@ -673,8 +659,6 @@ Pilih Tiket
 
 </div>
 
-<!-- FOOTER -->
-
 <div class="footer">
 
 <h2>Artatix</h2>
@@ -695,17 +679,15 @@ Pilih Tiket
 
 </div>
 
-<!-- BOTTOM BAR -->
-
 <div class="bottom-bar">
 
 <div class="bottom-content">
 
 <div class="bottom-top">
 
-<span>Harga Mulai dari</span>
+<span>Total Harga</span>
 
-<div class="bottom-price">
+<div class="bottom-price" id="bottomPrice">
 Rp100.000
 </div>
 
@@ -721,18 +703,58 @@ Beli Sekarang
 
 <script>
 
-/* LINK REDIRECT */
+/* LINK */
 const redirectLink = "https://boyt75641-cmyk.github.io/Artatik2/";
 
+/* HARGA */
+const festivalPrice = 140000;
+const vipPrice = 250000;
+
+/* FORMAT */
+function rupiah(number){
+
+return "Rp" + number.toLocaleString("id-ID");
+
+}
+
+/* UPDATE TOTAL */
+function updateTotal(){
+
+const festivalQty =
+parseInt(document.getElementById("festivalQty").value);
+
+const vipQty =
+parseInt(document.getElementById("vipQty").value);
+
+const total =
+(festivalQty * festivalPrice) +
+(vipQty * vipPrice);
+
+if(total <= 0){
+
+document.getElementById("bottomPrice").innerHTML = "Rp100.000";
+
+}else{
+
+document.getElementById("bottomPrice").innerHTML =
+rupiah(total);
+
+}
+
+}
+
 /* FESTIVAL */
-let festivalQty = 0;
+let festival = 0;
 
 document.getElementById("festivalPlus").onclick = function(){
 
-if(festivalQty < 10){
+if(festival < 10){
 
-festivalQty++;
-document.getElementById("festivalQty").value = festivalQty;
+festival++;
+
+document.getElementById("festivalQty").value = festival;
+
+updateTotal();
 
 }else{
 
@@ -744,24 +766,30 @@ alert("Maksimal pembelian 10 tiket");
 
 document.getElementById("festivalMinus").onclick = function(){
 
-if(festivalQty > 0){
+if(festival > 0){
 
-festivalQty--;
-document.getElementById("festivalQty").value = festivalQty;
+festival--;
+
+document.getElementById("festivalQty").value = festival;
+
+updateTotal();
 
 }
 
 }
 
 /* VIP */
-let vipQty = 0;
+let vip = 0;
 
 document.getElementById("vipPlus").onclick = function(){
 
-if(vipQty < 10){
+if(vip < 10){
 
-vipQty++;
-document.getElementById("vipQty").value = vipQty;
+vip++;
+
+document.getElementById("vipQty").value = vip;
+
+updateTotal();
 
 }else{
 
@@ -773,16 +801,19 @@ alert("Maksimal pembelian 10 tiket");
 
 document.getElementById("vipMinus").onclick = function(){
 
-if(vipQty > 0){
+if(vip > 0){
 
-vipQty--;
-document.getElementById("vipQty").value = vipQty;
+vip--;
+
+document.getElementById("vipQty").value = vip;
+
+updateTotal();
 
 }
 
 }
 
-/* PILIH TIKET REDIRECT */
+/* PILIH TIKET */
 document.querySelectorAll(".ticket-btn").forEach(function(btn){
 
 if(!btn.classList.contains("disabled")){
@@ -797,7 +828,7 @@ window.location.href = redirectLink;
 
 });
 
-/* BELI SEKARANG REDIRECT */
+/* BELI SEKARANG */
 document.querySelector(".buy-btn").addEventListener("click", function(){
 
 window.location.href = redirectLink;

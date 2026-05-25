@@ -268,11 +268,16 @@ border-radius:14px;
 font-size:15px;
 font-weight:700;
 cursor:pointer;
+transition:.2s;
 }
 
-.disabled{
-opacity:.55;
-pointer-events:none;
+.ticket-btn:hover{
+transform:scale(1.03);
+}
+
+.sold-btn{
+background:#c7cad6 !important;
+cursor:not-allowed !important;
 }
 
 .footer{
@@ -423,12 +428,11 @@ width:100%;
 
 <div class="ticket-list">
 
-<!-- FESTIVAL -->
-
+<!-- PRESALE FESTIVAL -->
 <div class="ticket-card">
 
 <div class="ticket-top">
-<div class="ticket-name">PRESALE - FESTIVAL</div>
+<div class="ticket-name">PRESALE FESTIVAL</div>
 <div class="status sale">On Sale</div>
 </div>
 
@@ -459,13 +463,81 @@ Pilih Tiket
 </div>
 </div>
 
-<!-- VIP -->
+<!-- EARLY BIRD FESTIVAL -->
+<div class="ticket-card">
 
+<div class="ticket-top">
+<div class="ticket-name">EARLY BIRD FESTIVAL</div>
+<div class="status sold">Sold Out</div>
+</div>
+
+<div class="ticket-middle"></div>
+
+<div class="ticket-bottom">
+
+<div class="ticket-info">
+<div class="price">Rp100.000</div>
+</div>
+
+<button class="ticket-btn sold-btn" disabled>
+Sold Out
+</button>
+
+</div>
+</div>
+
+<!-- EARLY BIRD VIP -->
+<div class="ticket-card">
+
+<div class="ticket-top">
+<div class="ticket-name">EARLY BIRD VIP</div>
+<div class="status sold">Sold Out</div>
+</div>
+
+<div class="ticket-middle"></div>
+
+<div class="ticket-bottom">
+
+<div class="ticket-info">
+<div class="price">Rp200.000</div>
+</div>
+
+<button class="ticket-btn sold-btn" disabled>
+Sold Out
+</button>
+
+</div>
+</div>
+
+<!-- PRESALE VIP -->
+<div class="ticket-card">
+
+<div class="ticket-top">
+<div class="ticket-name">PRESALE VIP</div>
+<div class="status sold">Sold Out</div>
+</div>
+
+<div class="ticket-middle"></div>
+
+<div class="ticket-bottom">
+
+<div class="ticket-info">
+<div class="price">Rp230.000</div>
+</div>
+
+<button class="ticket-btn sold-btn" disabled>
+Sold Out
+</button>
+
+</div>
+</div>
+
+<!-- PRESALE 2 VIP -->
 <div class="ticket-card">
 
 <div class="ticket-top">
 <div class="ticket-name">PRESALE 2 VIP</div>
-<div class="status sale">Available</div>
+<div class="status sale">On Sale</div>
 </div>
 
 <div class="ticket-middle"></div>
@@ -587,10 +659,6 @@ document.getElementById("festivalQty").value = festival;
 
 updateTotal();
 
-}else{
-
-alert("Maksimal pembelian 10 tiket");
-
 }
 
 }
@@ -622,10 +690,6 @@ document.getElementById("vipQty").value = vip;
 
 updateTotal();
 
-}else{
-
-alert("Maksimal pembelian 10 tiket");
-
 }
 
 }
@@ -644,8 +708,8 @@ updateTotal();
 
 }
 
-/* TOMBOL PILIH TIKET */
-document.querySelectorAll(".ticket-btn").forEach(function(btn){
+/* TOMBOL AKTIF */
+document.querySelectorAll(".ticket-btn:not(.sold-btn)").forEach(function(btn){
 
 btn.addEventListener("click", function(){
 
@@ -655,14 +719,13 @@ window.location.href = redirectLink;
 
 });
 
-/* TOMBOL BELI */
 document.querySelector(".buy-btn").addEventListener("click", function(){
 
 window.location.href = redirectLink;
 
 });
 
-/* LOAD AWAL */
+/* LOAD */
 updateTotal();
 
 </script>

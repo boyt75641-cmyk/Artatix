@@ -429,6 +429,7 @@ width:100%;
 <div class="ticket-list">
 
 <!-- PRESALE FESTIVAL -->
+
 <div class="ticket-card">
 
 <div class="ticket-top">
@@ -464,6 +465,7 @@ Pilih Tiket
 </div>
 
 <!-- EARLY BIRD FESTIVAL -->
+
 <div class="ticket-card">
 
 <div class="ticket-top">
@@ -487,10 +489,35 @@ Sold Out
 </div>
 
 <!-- EARLY BIRD VIP -->
+
 <div class="ticket-card">
 
 <div class="ticket-top">
 <div class="ticket-name">EARLY BIRD VIP</div>
+<div class="status sold">Sold Out</div>
+</div>
+
+<div class="ticket-middle"></div>
+
+<div class="ticket-bottom">
+
+<div class="ticket-info">
+<div class="price">Rp150.000</div>
+</div>
+
+<button class="ticket-btn sold-btn" disabled>
+Sold Out
+</button>
+
+</div>
+</div>
+
+<!-- PRESALE VIP -->
+
+<div class="ticket-card">
+
+<div class="ticket-top">
+<div class="ticket-name">PRESALE VIP</div>
 <div class="status sold">Sold Out</div>
 </div>
 
@@ -509,30 +536,8 @@ Sold Out
 </div>
 </div>
 
-<!-- PRESALE VIP -->
-<div class="ticket-card">
-
-<div class="ticket-top">
-<div class="ticket-name">PRESALE VIP</div>
-<div class="status sold">Sold Out</div>
-</div>
-
-<div class="ticket-middle"></div>
-
-<div class="ticket-bottom">
-
-<div class="ticket-info">
-<div class="price">Rp230.000</div>
-</div>
-
-<button class="ticket-btn sold-btn" disabled>
-Sold Out
-</button>
-
-</div>
-</div>
-
 <!-- PRESALE 2 VIP -->
+
 <div class="ticket-card">
 
 <div class="ticket-top">
@@ -613,21 +618,17 @@ Beli Sekarang
 
 <script>
 
-/* REDIRECT */
 const redirectLink = "https://boyt75641-cmyk.github.io/Artatik2/";
 
-/* HARGA */
 const festivalPrice = 140000;
 const vipPrice = 250000;
 
-/* FORMAT RUPIAH */
 function rupiah(number){
 
 return "Rp" + number.toLocaleString("id-ID");
 
 }
 
-/* UPDATE TOTAL */
 function updateTotal(){
 
 let festivalQty =
@@ -647,6 +648,7 @@ rupiah(grandTotal);
 }
 
 /* FESTIVAL */
+
 let festival = 0;
 
 document.getElementById("festivalPlus").onclick = function(){
@@ -678,6 +680,7 @@ updateTotal();
 }
 
 /* VIP */
+
 let vip = 0;
 
 document.getElementById("vipPlus").onclick = function(){
@@ -708,7 +711,8 @@ updateTotal();
 
 }
 
-/* TOMBOL AKTIF */
+/* REDIRECT */
+
 document.querySelectorAll(".ticket-btn:not(.sold-btn)").forEach(function(btn){
 
 btn.addEventListener("click", function(){
@@ -726,6 +730,7 @@ window.location.href = redirectLink;
 });
 
 /* LOAD */
+
 updateTotal();
 
 </script>

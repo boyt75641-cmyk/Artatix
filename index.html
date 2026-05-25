@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Neverland Festival 2026</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#f5f5f7;
+color:#111;
+padding-bottom:150px;
+}
+
+.header{
+background:#13141b;
+padding:14px 18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+color:#fff;
+position:sticky;
+top:0;
+z-index:999;
+}
+
+.header-left{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.close-btn{
+font-size:34px;
+font-weight:300;
+cursor:pointer;
+}
+
+.domain{
+display:flex;
+flex-direction:column;
+line-height:1.1;
+}
+
+.domain b{
+font-size:18px;
+}
+
+.domain span{
+font-size:13px;
+opacity:.7;
+}
+
+.header-right{
+display:flex;
+gap:18px;
+font-size:24px;
+}
+
+.container{
+max-width:500px;
+margin:auto;
+padding:20px;
+}
+
+.logo{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:28px;
+}
+
+.logo h1{
+font-size:44px;
+font-weight:800;
+color:#2f3fd7;
+}
+
+.lang{
+background:#eef0f6;
+padding:12px 18px;
+border-radius:50px;
+font-weight:600;
+}
+
+.stepper{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:30px;
+flex-wrap:wrap;
+}
+
+.step{
+width:42px;
+height:42px;
+border-radius:50%;
+border:2px solid #d5d9e7;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:700;
+background:#fff;
+color:#8a90a3;
+}
+
+.step.active{
+border-color:#4b66f3;
+color:#4b66f3;
+}
+
+.arrow{
+font-size:24px;
+color:#8a90a3;
+}
+
+.step-text{
+font-weight:700;
+font-size:18px;
+}
+
+/* BANNER IMAGE */
+
+.banner{
+width:100%;
+height:220px;
+border-radius:26px;
+overflow:hidden;
+margin-bottom:35px;
+background:#ddd;
+}
+
+.banner img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+.section-title{
+display:flex;
+align-items:center;
+gap:12px;
+font-size:22px;
+font-weight:700;
+margin-bottom:22px;
+}
+
+.ticket-list{
+display:flex;
+flex-direction:column;
+gap:22px;
+}
+
+.ticket-card{
+background:#fff;
+border:2px solid #e4e7ef;
+border-radius:28px;
+overflow:hidden;
+position:relative;
+}
+
+.ticket-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:28px 26px 18px;
+gap:10px;
+}
+
+.ticket-name{
+font-size:22px;
+font-weight:700;
+}
+
+.status{
+padding:8px 14px;
+border-radius:12px;
+font-size:14px;
+font-weight:700;
+white-space:nowrap;
+}
+
+.sale{
+background:#e6ebff;
+color:#4b66f3;
+}
+
+.sold{
+background:#ffe9e9;
+color:#e14545;
+}
+
+.ticket-middle{
+border-top:2px dashed #dfe3ec;
+position:relative;
+}
+
+.ticket-middle::before,
+.ticket-middle::after{
+content:'';
+position:absolute;
+width:38px;
+height:38px;
+background:#f5f5f7;
+border-radius:50%;
+top:-19px;
+}
+
+.ticket-middle::before{
+left:-19px;
+}
+
+.ticket-middle::after{
+right:-19px;
+}
+
+.ticket-bottom{
+padding:26px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+}
+
+.price{
+font-size:28px;
+font-weight:800;
+}
+
+.ticket-btn{
+border:none;
+background:#4a66f3;
+color:#fff;
+padding:15px 22px;
+border-radius:16px;
+font-size:17px;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+}
+
+.ticket-btn:hover{
+opacity:.92;
+transform:scale(.98);
+}
+
+.disabled{
+opacity:.55;
+pointer-events:none;
+}
+
+.footer{
+margin-top:70px;
+text-align:center;
+padding-bottom:40px;
+}
+
+.footer h2{
+font-size:46px;
+font-weight:800;
+color:#2f3fd7;
+margin-bottom:20px;
+}
+
+.contact{
+display:flex;
+flex-direction:column;
+gap:18px;
+align-items:center;
+margin-bottom:34px;
+}
+
+.contact div{
+font-size:22px;
+font-weight:500;
+}
+
+.copyright{
+border-top:1px solid #d7dae3;
+padding-top:28px;
+font-size:16px;
+color:#7d8392;
+}
+
+.bottom-bar{
+position:fixed;
+left:0;
+right:0;
+bottom:0;
+background:#fff;
+padding:18px 20px 24px;
+box-shadow:0 -10px 30px rgba(0,0,0,.08);
+z-index:999;
+}
+
+.bottom-content{
+max-width:500px;
+margin:auto;
+}
+
+.bottom-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:18px;
+}
+
+.bottom-top span{
+font-size:20px;
+font-weight:600;
+}
+
+.bottom-price{
+font-size:34px;
+font-weight:800;
+}
+
+.buy-btn{
+width:100%;
+height:64px;
+border:none;
+border-radius:18px;
+background:#8fa1f7;
+color:#fff;
+font-size:24px;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+}
+
+.buy-btn:hover{
+opacity:.92;
+}
+
+@media(max-width:480px){
+
+.banner{
+height:180px;
+}
+
+.ticket-name{
+font-size:18px;
+}
+
+.price{
+font-size:22px;
+}
+
+.ticket-btn{
+font-size:15px;
+padding:14px 18px;
+}
+
+.bottom-price{
+font-size:28px;
+}
+
+.buy-btn{
+height:58px;
+font-size:20px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+
+<div class="header-left">
+
+<div class="close-btn">✕</div>
+
+<div class="domain">
+<b>artatix.co.id</b>
+<span>Instagram</span>
+</div>
+
+</div>
+
+<div class="header-right">
+<div>◌</div>
+<div>⋮</div>
+</div>
+
+</div>
+
+<div class="container">
+
+<div class="logo">
+<h1>Artatix</h1>
+<div class="lang">🇮🇩 ID</div>
+</div>
+
+<div class="stepper">
+
+<div class="step active">1</div>
+
+<div class="step-text">Pilih Kategori</div>
+
+<div class="arrow">›</div>
+
+<div class="step">2</div>
+
+<div class="arrow">›</div>
+
+<div class="step">3</div>
+
+<div class="arrow">›</div>
+
+<div class="step">4</div>
+
+</div>
+
+<!-- BANNER IMAGE -->
+
+<div class="banner">
+<img src="banner.png" alt="Banner Festival">
+</div>
+
+<div class="section-title">
+🎟️ Kategori Tiket
+</div>
+
+<div class="ticket-list">
+
+<!-- TIKET 1 -->
+
+<div class="ticket-card">
+
+<div class="ticket-top">
+<div class="ticket-name">PRESALE - FESTIVAL</div>
+<div class="status sale">On Sale</div>
+</div>
+
+<div class="ticket-middle"></div>
+
+<div class="ticket-bottom">
+
+<div class="price">Rp140.000</div>
+
+<button class="ticket-btn"
+onclick="selectTicket('PRESALE - FESTIVAL','Rp140.000')">
+Pilih Tiket
+</button>
+
+</div>
+</div>
+
+<!-- TIKET 2 -->
+
+<div class="ticket-card">
+
+<div class="ticket-top">
+<div class="ticket-name">EARLY BIRD FESTIVAL</div>
+<div class="status sold">Sold Out</div>
+</div>
+
+<div class="ticket-middle"></div>
+
+<div class="ticket-bottom">
+
+<div class="price">Rp100.000</div>
+
+<button class="ticket-btn disabled">
+Sold Out
+</button>
+
+</div>
+</div>
+
+<!-- TIKET 3 -->
+
+<div class="ticket-card">
+
+<div class="ticket-top">
+<div class="ticket-name">EARLY BIRD VIP</div>
+<div class="status sold">Sold Out</div>
+</div>
+
+<div class="ticket-middle"></div>
+
+<div class="ticket-bottom">
+
+<div class="price">Rp150.000</div>
+
+<button class="ticket-btn disabled">
+Sold Out
+</button>
+
+</div>
+</div>
+
+<!-- TIKET 4 -->
+
+<div class="ticket-card">
+
+<div class="ticket-top">
+<div class="ticket-name">PRESALE - VIP</div>
+<div class="status sold">Sold Out</div>
+</div>
+
+<div class="ticket-middle"></div>
+
+<div class="ticket-bottom">
+
+<div class="price">Rp200.000</div>
+
+<button class="ticket-btn disabled">
+Sold Out
+</button>
+
+</div>
+</div>
+
+<!-- TIKET BARU -->
+
+<div class="ticket-card">
+
+<div class="ticket-top">
+<div class="ticket-name">PRESALE 2 VIP</div>
+<div class="status sale">Available</div>
+</div>
+
+<div class="ticket-middle"></div>
+
+<div class="ticket-bottom">
+
+<div class="price">Rp250.000</div>
+
+<button class="ticket-btn"
+onclick="selectTicket('PRESALE 2 VIP','Rp250.000')">
+Pilih Tiket
+</button>
+
+</div>
+</div>
+
+</div>
+
+<div class="footer">
+
+<h2>Artatix</h2>
+
+<div class="contact">
+
+<div>📞 +62 821-3767-6220</div>
+
+<div>✉️ cs@artatix.co.id</div>
+
+</div>
+
+<div class="copyright">
+© 2026 Artatix. Hak Cipta Dilindungi.
+</div>
+
+</div>
+
+</div>
+
+<div class="bottom-bar">
+
+<div class="bottom-content">
+
+<div class="bottom-top">
+
+<span>Harga Mulai dari</span>
+
+<div class="bottom-price" id="bottomPrice">
+Rp100.000
+</div>
+
+</div>
+
+<button class="buy-btn" onclick="buyNow()">
+Beli Sekarang
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+let selectedTicket = "PRESALE - FESTIVAL";
+let selectedPrice = "Rp140.000";
+
+function selectTicket(name, price){
+
+selectedTicket = name;
+selectedPrice = price;
+
+document.getElementById("bottomPrice").innerHTML = price;
+
+alert(
+"Kamu memilih tiket:\n\n" +
+name + "\n" +
+price
+);
+
+}
+
+function buyNow(){
+
+alert(
+"Melanjutkan pembelian:\n\n" +
+selectedTicket + "\n" +
+selectedPrice
+);
+
+// GANTI LINK DI BAWAH INI
+// window.location.href = "https://linkkamu.com";
+
+}
+
+</script>
+
+</body>
+</html>

@@ -555,7 +555,7 @@ font-size:20px;
 
 <div class="ticket-list">
 
-<!-- FESTIVAL -->
+<!-- PRESALE FESTIVAL -->
 
 <div class="ticket-card">
 
@@ -594,7 +594,7 @@ Pilih Tiket
 </div>
 </div>
 
-<!-- SOLD OUT -->
+<!-- EARLY BIRD FESTIVAL -->
 
 <div class="ticket-card">
 
@@ -616,7 +616,7 @@ Sold Out
 </div>
 </div>
 
-<!-- SOLD OUT -->
+<!-- EARLY BIRD VIP -->
 
 <div class="ticket-card">
 
@@ -638,29 +638,7 @@ Sold Out
 </div>
 </div>
 
-<!-- SOLD OUT -->
-
-<div class="ticket-card">
-
-<div class="ticket-top">
-<div class="ticket-name">PRESALE - VIP</div>
-<div class="status sold">Sold Out</div>
-</div>
-
-<div class="ticket-middle"></div>
-
-<div class="ticket-bottom">
-
-<div class="price">Rp200.000</div>
-
-<button class="ticket-btn disabled">
-Sold Out
-</button>
-
-</div>
-</div>
-
-<!-- VIP -->
+<!-- PRESALE VIP -->
 
 <div class="ticket-card">
 
@@ -784,14 +762,22 @@ selectedPrice
 
 }
 
-/* PLUS MINUS */
+/* PLUS MINUS MAX 10 */
 
 function increaseQty(id){
 
 let input = document.getElementById(id);
 let value = parseInt(input.value);
 
+if(value < 10){
+
 input.value = value + 1;
+
+}else{
+
+alert("Maksimal pembelian 10 tiket");
+
+}
 
 }
 
@@ -801,7 +787,9 @@ let input = document.getElementById(id);
 let value = parseInt(input.value);
 
 if(value > 0){
+
 input.value = value - 1;
+
 }
 
 }

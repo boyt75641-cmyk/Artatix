@@ -26,8 +26,6 @@ color:#111;
 padding-bottom:150px;
 }
 
-/* HEADER */
-
 .header{
 background:#13141b;
 padding:14px 18px;
@@ -48,7 +46,6 @@ gap:12px;
 
 .close-btn{
 font-size:34px;
-font-weight:300;
 cursor:pointer;
 }
 
@@ -73,15 +70,11 @@ gap:18px;
 font-size:24px;
 }
 
-/* CONTAINER */
-
 .container{
 max-width:520px;
 margin:auto;
 padding:20px;
 }
-
-/* LOGO */
 
 .logo{
 display:flex;
@@ -102,8 +95,6 @@ padding:12px 18px;
 border-radius:50px;
 font-weight:600;
 }
-
-/* STEPPER */
 
 .stepper{
 display:flex;
@@ -141,8 +132,6 @@ font-weight:700;
 font-size:18px;
 }
 
-/* BANNER */
-
 .banner{
 width:100%;
 height:220px;
@@ -160,8 +149,6 @@ object-fit:cover;
 display:block;
 }
 
-/* TITLE */
-
 .section-title{
 display:flex;
 align-items:center;
@@ -171,42 +158,30 @@ font-weight:700;
 margin-bottom:22px;
 }
 
-/* TICKET LIST */
-
 .ticket-list{
 display:flex;
 flex-direction:column;
 gap:20px;
 }
 
-/* CARD */
-
 .ticket-card{
 background:#fff;
 border:2px solid #e7eaf2;
 border-radius:30px;
 overflow:hidden;
-position:relative;
 box-shadow:0 10px 30px rgba(0,0,0,.05);
-transition:.3s;
-}
-
-.ticket-card:hover{
-transform:translateY(-3px);
 }
 
 .ticket-top{
 display:flex;
 justify-content:space-between;
 align-items:flex-start;
-padding:24px 24px 18px;
-gap:12px;
+padding:24px;
 }
 
 .ticket-name{
 font-size:21px;
 font-weight:700;
-line-height:1.3;
 }
 
 .status{
@@ -214,7 +189,6 @@ padding:8px 14px;
 border-radius:14px;
 font-size:13px;
 font-weight:700;
-white-space:nowrap;
 }
 
 .sale{
@@ -227,33 +201,9 @@ background:#ffe8e8;
 color:#e14545;
 }
 
-/* DASH */
-
 .ticket-middle{
 border-top:2px dashed #e1e5ef;
-position:relative;
 }
-
-.ticket-middle::before,
-.ticket-middle::after{
-content:'';
-position:absolute;
-width:36px;
-height:36px;
-background:#f5f5f7;
-border-radius:50%;
-top:-18px;
-}
-
-.ticket-middle::before{
-left:-18px;
-}
-
-.ticket-middle::after{
-right:-18px;
-}
-
-/* BOTTOM */
 
 .ticket-bottom{
 padding:24px;
@@ -261,7 +211,6 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 gap:16px;
-flex-wrap:nowrap;
 }
 
 .ticket-info{
@@ -274,11 +223,7 @@ flex-wrap:wrap;
 .price{
 font-size:28px;
 font-weight:800;
-white-space:nowrap;
-margin:0;
 }
-
-/* QTY */
 
 .qty-box{
 display:flex;
@@ -299,11 +244,6 @@ color:#fff;
 font-size:22px;
 font-weight:700;
 cursor:pointer;
-transition:.2s;
-}
-
-.qty-btn:hover{
-transform:scale(.95);
 }
 
 .qty-box input{
@@ -318,8 +258,6 @@ background:#fff;
 outline:none;
 }
 
-/* BUTTON */
-
 .ticket-btn{
 height:52px;
 border:none;
@@ -330,21 +268,12 @@ border-radius:14px;
 font-size:15px;
 font-weight:700;
 cursor:pointer;
-white-space:nowrap;
-transition:.3s;
-}
-
-.ticket-btn:hover{
-opacity:.92;
-transform:scale(.98);
 }
 
 .disabled{
 opacity:.55;
 pointer-events:none;
 }
-
-/* FOOTER */
 
 .footer{
 margin-top:70px;
@@ -367,19 +296,12 @@ align-items:center;
 margin-bottom:34px;
 }
 
-.contact div{
-font-size:20px;
-font-weight:500;
-}
-
 .copyright{
 border-top:1px solid #d7dae3;
 padding-top:28px;
 font-size:16px;
 color:#7d8392;
 }
-
-/* BOTTOM BAR */
 
 .bottom-bar{
 position:fixed;
@@ -424,57 +346,17 @@ color:#fff;
 font-size:24px;
 font-weight:700;
 cursor:pointer;
-transition:.3s;
 }
-
-.buy-btn:hover{
-opacity:.92;
-}
-
-/* MOBILE */
 
 @media(max-width:480px){
-
-.container{
-padding:16px;
-}
-
-.banner{
-height:180px;
-}
-
-.ticket-top{
-padding:22px 20px 16px;
-}
 
 .ticket-bottom{
 flex-direction:column;
 align-items:flex-start;
 }
 
-.ticket-info{
-width:100%;
-}
-
 .ticket-btn{
 width:100%;
-}
-
-.ticket-name{
-font-size:18px;
-}
-
-.price{
-font-size:24px;
-}
-
-.bottom-price{
-font-size:28px;
-}
-
-.buy-btn{
-height:58px;
-font-size:20px;
 }
 
 }
@@ -577,50 +459,6 @@ Pilih Tiket
 </div>
 </div>
 
-<!-- SOLD -->
-
-<div class="ticket-card">
-
-<div class="ticket-top">
-<div class="ticket-name">EARLY BIRD FESTIVAL</div>
-<div class="status sold">Sold Out</div>
-</div>
-
-<div class="ticket-middle"></div>
-
-<div class="ticket-bottom">
-
-<div class="price">Rp100.000</div>
-
-<button class="ticket-btn disabled">
-Sold Out
-</button>
-
-</div>
-</div>
-
-<!-- SOLD -->
-
-<div class="ticket-card">
-
-<div class="ticket-top">
-<div class="ticket-name">EARLY BIRD VIP</div>
-<div class="status sold">Sold Out</div>
-</div>
-
-<div class="ticket-middle"></div>
-
-<div class="ticket-bottom">
-
-<div class="price">Rp150.000</div>
-
-<button class="ticket-btn disabled">
-Sold Out
-</button>
-
-</div>
-</div>
-
 <!-- VIP -->
 
 <div class="ticket-card">
@@ -685,10 +523,10 @@ Pilih Tiket
 
 <div class="bottom-top">
 
-<span>Total Harga</span>
+<span>Rincian Pesanan</span>
 
 <div class="bottom-price" id="bottomPrice">
-Rp100.000
+Rp0
 </div>
 
 </div>
@@ -703,14 +541,14 @@ Beli Sekarang
 
 <script>
 
-/* LINK */
+/* REDIRECT */
 const redirectLink = "https://boyt75641-cmyk.github.io/Artatik2/";
 
 /* HARGA */
 const festivalPrice = 140000;
 const vipPrice = 250000;
 
-/* FORMAT */
+/* FORMAT RUPIAH */
 function rupiah(number){
 
 return "Rp" + number.toLocaleString("id-ID");
@@ -720,26 +558,19 @@ return "Rp" + number.toLocaleString("id-ID");
 /* UPDATE TOTAL */
 function updateTotal(){
 
-const festivalQty =
+let festivalQty =
 parseInt(document.getElementById("festivalQty").value);
 
-const vipQty =
+let vipQty =
 parseInt(document.getElementById("vipQty").value);
 
-const total =
-(festivalQty * festivalPrice) +
-(vipQty * vipPrice);
+let totalFestival = festivalQty * festivalPrice;
+let totalVip = vipQty * vipPrice;
 
-if(total <= 0){
-
-document.getElementById("bottomPrice").innerHTML = "Rp100.000";
-
-}else{
+let grandTotal = totalFestival + totalVip;
 
 document.getElementById("bottomPrice").innerHTML =
-rupiah(total);
-
-}
+rupiah(grandTotal);
 
 }
 
@@ -813,10 +644,8 @@ updateTotal();
 
 }
 
-/* PILIH TIKET */
+/* TOMBOL PILIH TIKET */
 document.querySelectorAll(".ticket-btn").forEach(function(btn){
-
-if(!btn.classList.contains("disabled")){
 
 btn.addEventListener("click", function(){
 
@@ -824,16 +653,17 @@ window.location.href = redirectLink;
 
 });
 
-}
-
 });
 
-/* BELI SEKARANG */
+/* TOMBOL BELI */
 document.querySelector(".buy-btn").addEventListener("click", function(){
 
 window.location.href = redirectLink;
 
 });
+
+/* LOAD AWAL */
+updateTotal();
 
 </script>
 

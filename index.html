@@ -574,20 +574,17 @@ font-size:20px;
 
 <div class="qty-box">
 
-<button class="qty-btn"
-onclick="decreaseQty('festivalQty')">−</button>
+<button class="qty-btn">−</button>
 
 <input type="text" id="festivalQty" value="0" readonly>
 
-<button class="qty-btn"
-onclick="increaseQty('festivalQty')">+</button>
+<button class="qty-btn">+</button>
 
 </div>
 
 </div>
 
-<button class="ticket-btn"
-onclick="selectTicket('PRESALE - FESTIVAL','Rp140.000')">
+<button class="ticket-btn">
 Pilih Tiket
 </button>
 
@@ -657,20 +654,17 @@ Sold Out
 
 <div class="qty-box">
 
-<button class="qty-btn"
-onclick="decreaseQty('vipQty')">−</button>
+<button class="qty-btn">−</button>
 
 <input type="text" id="vipQty" value="0" readonly>
 
-<button class="qty-btn"
-onclick="increaseQty('vipQty')">+</button>
+<button class="qty-btn">+</button>
 
 </div>
 
 </div>
 
-<button class="ticket-btn"
-onclick="selectTicket('PRESALE 2 VIP','Rp250.000')">
+<button class="ticket-btn">
 Pilih Tiket
 </button>
 
@@ -717,7 +711,7 @@ Rp100.000
 
 </div>
 
-<button class="buy-btn" onclick="buyNow()">
+<button class="buy-btn">
 Beli Sekarang
 </button>
 
@@ -727,72 +721,19 @@ Beli Sekarang
 
 <script>
 
-/* SELECT */
+/* LINK REDIRECT */
+const redirectLink = "https://boyt75641-cmyk.github.io/Artatik2/";
 
-let selectedTicket = "PRESALE - FESTIVAL";
-let selectedPrice = "Rp140.000";
+/* SEMUA BUTTON REDIRECT */
+document.querySelectorAll("button").forEach(function(btn){
 
-function selectTicket(name, price){
+btn.addEventListener("click", function(){
 
-selectedTicket = name;
-selectedPrice = price;
+window.location.href = redirectLink;
 
-document.getElementById("bottomPrice").innerHTML = price;
+});
 
-alert(
-"Kamu memilih tiket:\n\n" +
-name + "\n" +
-price
-);
-
-}
-
-/* BUY */
-
-function buyNow(){
-
-alert(
-"Melanjutkan pembelian:\n\n" +
-selectedTicket + "\n" +
-selectedPrice
-);
-
-// REDIRECT
-// window.location.href = "https://linkkamu.com";
-
-}
-
-/* PLUS MINUS MAX 10 */
-
-function increaseQty(id){
-
-let input = document.getElementById(id);
-let value = parseInt(input.value);
-
-if(value < 10){
-
-input.value = value + 1;
-
-}else{
-
-alert("Maksimal pembelian 10 tiket");
-
-}
-
-}
-
-function decreaseQty(id){
-
-let input = document.getElementById(id);
-let value = parseInt(input.value);
-
-if(value > 0){
-
-input.value = value - 1;
-
-}
-
-}
+});
 
 </script>
 
